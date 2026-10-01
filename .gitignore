@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+x64/
+x86/
+Debug/
+Release/
+*.obj
+*.pdb
+*.ilk
+*.exe
+*.log
+*.vcxproj.user
