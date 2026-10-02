@@ -1,3 +1,5 @@
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:wWinMainCRTStartup")
+#pragma execution_character_set("utf-8")
 #include <windows.h>
 #include <string>
 #include <vector>
@@ -492,11 +494,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 
         hDropZone = CreateWindowW(L"STATIC", L"下方区域：把文件拖到这里", WS_CHILD | WS_VISIBLE | SS_CENTER | WS_BORDER, 0, 0, 0, 0, hWnd, NULL, hInst, NULL);
 
-        // =============== 关于页面内容（想要加东西就在这里加） ===============
+        // =============== 关于页面内容 ===============
         // 格式：hAboutTexts[索引] = CreateWindowW(..., 文本, ...);
         // 如果有链接，就设置 g_aboutUrls[索引] = L"链接地址";
 
-        hAboutTexts[0] = CreateWindowW(L"STATIC", L"作业重命名工具 v1.0", WS_CHILD | WS_VISIBLE | SS_CENTER, 0, 0, 0, 0, hWnd, NULL, hInst, NULL);
+        hAboutTexts[0] = CreateWindowW(L"STATIC", L"作业重命名工具 v1.1", WS_CHILD | WS_VISIBLE | SS_CENTER, 0, 0, 0, 0, hWnd, NULL, hInst, NULL);
 
         hAboutTexts[1] = CreateWindowW(L"STATIC", L"作者：[水又丰]", WS_CHILD | WS_VISIBLE | SS_CENTER, 0, 0, 0, 0, hWnd, NULL, hInst, NULL);
 
@@ -504,12 +506,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
 
         hAboutTexts[3] = CreateWindowW(L"STATIC", L"简介：一个极简的免安装文件重命名小工具。", WS_CHILD | WS_VISIBLE | SS_CENTER, 0, 0, 0, 0, hWnd, NULL, hInst, NULL);
 
-        // 你的 QQ 反馈行
+        
         hAboutTexts[4] = CreateWindowW(L"STATIC", L"有问题欢迎反馈 QQ：334015073", WS_CHILD | WS_VISIBLE | SS_CENTER, 0, 0, 0, 0, hWnd, NULL, hInst, NULL);
 
         // GitHub 项目链接（加了 SS_NOTIFY 和特殊 ID 800+ 才能点击跳转）
-        hAboutTexts[5] = CreateWindowW(L"STATIC", L"项目地址：https://github.com/你的用户名/项目名", WS_CHILD | WS_VISIBLE | SS_CENTER | SS_NOTIFY, 0, 0, 0, 0, hWnd, (HMENU)805, hInst, NULL);
-        g_aboutUrls[5] = L"https://github.com/你的用户名/项目名"; // 点击后跳转的链接
+        hAboutTexts[5] = CreateWindowW(L"STATIC", L"项目地址：https://github.com/sjxywo/tool_1", WS_CHILD | WS_VISIBLE | SS_CENTER | SS_NOTIFY, 0, 0, 0, 0, hWnd, (HMENU)805, hInst, NULL);
+        g_aboutUrls[5] = L"https://github.com/sjxywo/tool_1"; // 点击后跳转的链接
 
         // 如果你还想加更多，往下继续写 hAboutTexts[6], g_aboutUrls[6] ... 最大到 19
 
